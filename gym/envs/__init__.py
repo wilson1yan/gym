@@ -332,6 +332,13 @@ register(
     max_episode_steps=1000,
 )
 
+register(
+    id='Rope-v1',
+    entry_point='gym.envs.mujoco:RopeEnv',
+    max_episode_steps=1000,
+    reward_threshold=360.0,
+)
+
 # Robotics
 # ----------------------------------------
 

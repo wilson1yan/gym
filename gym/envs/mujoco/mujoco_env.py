@@ -125,6 +125,11 @@ class MujocoEnv(gym.Env):
         for _ in range(n_frames):
             self.sim.step()
 
+    def do_simulation_external(self, exctrl, n_frames):
+        self.sim.data.xfrc_applied[21,:2] = exctrl
+        for _ in range(n_frames):
+            self.sim.step()
+
     def render(self, mode='human', width=DEFAULT_SIZE, height=DEFAULT_SIZE):
         if mode == 'rgb_array':
             camera_id = None
